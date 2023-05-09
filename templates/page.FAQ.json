@@ -1,0 +1,152 @@
+{
+  "sections": {
+    "main": {
+      "type": "faq",
+      "blocks": {
+        "7b101d9d-2b53-4d33-aa9f-88b81fde3f8a": {
+          "type": "FAQ",
+          "settings": {
+            "text": "<p>cxxzxxxxx<\/p>",
+            "button_label": "What is ur return policy"
+          }
+        },
+        "9756bc85-b347-4383-868b-6da3cd3a869c": {
+          "type": "FAQ",
+          "settings": {
+            "text": "<p>FAQ2<\/p><p><\/p>",
+            "button_label": "Button label"
+          }
+        },
+        "cc81da45-ee52-482e-b3d6-1751660bcc14": {
+          "type": "FAQ",
+          "settings": {
+            "text": "<p>FAQ3<\/p><p><\/p>",
+            "button_label": "Button label"
+          }
+        },
+        "074dbf87-a32a-432b-8a4f-b3c717b42a4c": {
+          "type": "FAQ",
+          "settings": {
+            "text": "<p>FAQ4<\/p>",
+            "button_label": "Button label"
+          }
+        },
+        "afc49f5b-a336-4a81-9647-d62752100664": {
+          "type": "FAQ",
+          "settings": {
+            "text": "<p>FAQ5<\/p>",
+            "button_label": "Button label"
+          }
+        }
+      },
+      "block_order": [
+        "7b101d9d-2b53-4d33-aa9f-88b81fde3f8a",
+        "9756bc85-b347-4383-868b-6da3cd3a869c",
+        "cc81da45-ee52-482e-b3d6-1751660bcc14",
+        "074dbf87-a32a-432b-8a4f-b3c717b42a4c",
+        "afc49f5b-a336-4a81-9647-d62752100664"
+      ],
+      "settings": {
+        "content_alignment": "left",
+        "color_scheme": "background-1"
+      }
+    },
+    "0a319cac-6c4a-47f3-b423-8b73c99e36f5": {
+      "type": "image-banner",
+      "disabled": true,
+      "blocks": {
+        "template--18832399106343__0a319cac-6c4a-47f3-b423-8b73c99e36f5-1683278246aecb9b0b-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "template--18832399106343__0a319cac-6c4a-47f3-b423-8b73c99e36f5-1683278246aecb9b0b-1": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "template--18832399106343__0a319cac-6c4a-47f3-b423-8b73c99e36f5-1683278246aecb9b0b-2": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--18832399106343__0a319cac-6c4a-47f3-b423-8b73c99e36f5-1683278246aecb9b0b-0",
+        "template--18832399106343__0a319cac-6c4a-47f3-b423-8b73c99e36f5-1683278246aecb9b0b-1",
+        "template--18832399106343__0a319cac-6c4a-47f3-b423-8b73c99e36f5-1683278246aecb9b0b-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/a-woman-with-mobile-and-coffee.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "background-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
+    },
+    "b945aa9a-40ef-4d0e-8306-14bdf337add6": {
+      "type": "rich-text",
+      "disabled": true,
+      "blocks": {
+        "template--18832399106343__b945aa9a-40ef-4d0e-8306-14bdf337add6-1683277574c047e141-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "ABOUT THE MOBILE STORE ONLINE",
+            "heading_size": "h1"
+          }
+        },
+        "template--18832399106343__b945aa9a-40ef-4d0e-8306-14bdf337add6-1683277574c047e141-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The Mobile Store has always set its sights high. We look for high standards in everything that we do – for our customers, for our employees and for the future. In the same way, we have developed a special relationship with two world-class international cricket players, establishing them as ambassadors for Mobile Stores products and services.<\/p>"
+          }
+        },
+        "template--18832399106343__b945aa9a-40ef-4d0e-8306-14bdf337add6-1683277574c047e141-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--18832399106343__b945aa9a-40ef-4d0e-8306-14bdf337add6-1683277574c047e141-0",
+        "template--18832399106343__b945aa9a-40ef-4d0e-8306-14bdf337add6-1683277574c047e141-1",
+        "template--18832399106343__b945aa9a-40ef-4d0e-8306-14bdf337add6-1683277574c047e141-2"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "0a319cac-6c4a-47f3-b423-8b73c99e36f5",
+    "b945aa9a-40ef-4d0e-8306-14bdf337add6"
+  ]
+}

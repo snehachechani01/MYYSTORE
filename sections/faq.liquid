@@ -1,0 +1,155 @@
+faq.liquid
+
+<div class="rich-text__blocks {{ section.settings.content_alignment }}">
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'FAQ' -%}
+        <button class="accordion" style="background-color: {{ section.settings.accordion_color }}">
+          <span class="toggle-icon"></span>
+          {{- block.settings.button_label | escape -}}
+        </button>
+        <div class="panel">
+          <p>{{ block.settings.text }}</p>
+        </div>
+    {%- endcase -%}
+  {%- endfor -%}
+</div>
+{% schema %}
+{
+  "name": "section name",
+  "settings": [{
+    "type": "select",
+    "id": "content_alignment",
+    "options": [
+      {
+        "value": "left",
+        "label": "t:sections.rich-text.settings.content_alignment.options__1.label"
+      },
+      {
+        "value": "center",
+        "label": "t:sections.rich-text.settings.content_alignment.options__2.label"
+      },
+      {
+        "value": "right",
+        "label": "t:sections.rich-text.settings.content_alignment.options__3.label"
+      }
+    ],
+    "default": "center",
+    "label": "t:sections.rich-text.settings.content_alignment.label"
+  },
+   {
+    "type": "select",
+    "id": "color_scheme",
+    "options": [
+      {
+        "value": "accent-1",
+        "label": "t:sections.all.colors.accent_1.label"
+      },
+      {
+        "value": "accent-2",
+        "label": "t:sections.all.colors.accent_2.label"
+      },
+      {
+        "value": "background-1",
+        "label": "t:sections.all.colors.background_1.label"
+      },
+      {
+        "value": "background-2",
+        "label": "t:sections.all.colors.background_2.label"
+      },
+      {
+        "value": "inverse",
+        "label": "t:sections.all.colors.inverse.label"
+       }
+    ],
+    "default": "background-1",
+    "label": "t:sections.all.colors.label"
+  }
+  ],
+    "blocks": [
+     {
+      "type": "FAQ",
+      "name": "t:sections.rich-text.blocks.text.name",
+      "limit": 10,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+          "label": "t:sections.rich-text.blocks.text.settings.text.label"
+        },
+         {
+          "type": "text",
+          "id": "button_label",
+          "default": "Button label",
+          "label": "t:sections.rich-text.blocks.buttons.settings.button_label_1.label",
+          "info": "t:sections.rich-text.blocks.buttons.settings.button_label_1.info"
+        }
+      ]
+    }
+    ]
+
+    }
+{% endschema %}
+
+{% stylesheet %}
+    		.container {
+  			max-width: 800px;
+  			margin: 0 auto;
+  			padding: 20px;
+  		}
+  		.accordion {
+  			background-color: #eee;
+  			color: #444;
+  			cursor: pointer;
+  			padding: 18px;
+  			width: 100%;
+  			border: none;
+  			text-align: left;
+  			outline: none;
+  			font-size: 18px;
+  			transition: 0.4s;
+  		}
+  		.active, .accordion:hover {
+  			background-color: #ccc;
+  		}
+  		.panel {
+  			padding: 0 18px;
+  			background-color: white;
+  			display: none;
+  			overflow: hidden;
+  		}
+    .accordion.left {
+   text-align:left;
+  }
+
+  .accordion.right{
+  text-align:right;
+  }
+    .panel.left{
+      text-align:left;
+    }
+    .panel.right{
+      text-align:right;
+    }
+    .container{
+      background-color:pink;
+    }
+{% endstylesheet %}
+
+{% javascript %}
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+  	acc[i].addEventListener("click", function() {
+  		this.classList.toggle("active");
+  		var panel = this.nextElementSibling;
+  		if (panel.style.display === "block") {
+  			panel.style.display = "none";
+  		} else {
+  			panel.style.display = "block";
+  		}
+  	});
+  }
+{% endjavascript %}
