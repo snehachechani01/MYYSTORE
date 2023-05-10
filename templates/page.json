@@ -30,12 +30,20 @@
             "quote": "<p>nice<\/p>",
             "author": "Sakshi"
           }
+        },
+        "9ec618f3-2cdc-4a6d-b424-6885ab974400": {
+          "type": "quote",
+          "settings": {
+            "quote": "<p>NOT SO NICE<\/p>",
+            "author": "SUDHANSHU"
+          }
         }
       },
       "block_order": [
         "template--18880150143271__ad44fefe-5e83-4326-b891-8d1d1534aec7-168370607794d51329-0",
         "template--18880150143271__ad44fefe-5e83-4326-b891-8d1d1534aec7-168370607794d51329-1",
-        "template--18880150143271__ad44fefe-5e83-4326-b891-8d1d1534aec7-168370607794d51329-2"
+        "template--18880150143271__ad44fefe-5e83-4326-b891-8d1d1534aec7-168370607794d51329-2",
+        "9ec618f3-2cdc-4a6d-b424-6885ab974400"
       ],
       "settings": {
         "title": "Testimonials"

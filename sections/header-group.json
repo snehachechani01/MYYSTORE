@@ -27,7 +27,8 @@
         "autoplay": true,
         "delay": "5000",
         "colorBackground": "#ffffff",
-        "colorText": "#000"
+        "colorText": "#000000",
+        "content_alignment": "left"
       }
     },
     "header": {
