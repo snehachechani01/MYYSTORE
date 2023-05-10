@@ -1,9 +1,11 @@
 <div>
   <label for="faq-image-picker">Select an image:</label>
   <select id="faq-image-picker" name="faq-image-picker">
-    <img src="https://example.com/image1.jpg">Image 1 Alt Text</option>
-    <option value="https://example.com/image2.jpg">Image 2 Alt Text</option>
-    <option value="https://example.com/image3.jpg">Image 3 Alt Text</option>
+    {% for image in product.images %}
+      <option value="{{ image.alt }}">
+        <img src="{{ image.src | img_url: '200x200' }}" alt="{{ image.alt }}">
+      </option>
+    {% endfor %}
   </select>
 </div>
 
