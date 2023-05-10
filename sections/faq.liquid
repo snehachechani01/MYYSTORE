@@ -4,19 +4,24 @@
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when 'FAQ' -%}
+      
         <button class="accordion" style="background-color: {{ block.settings.accordion_color }}">
           <span class="toggle-icon"></span>
           {{- block.settings.button_label | escape -}}
+      
         </button>
         <div class="panel">
           <p>{{ block.settings.text }}</p>
+          <div>
+  <img src={{ block.settings.upload_image|img_url:'200x200' }}" alt="">
+</div>
         </div>
+      
     {%- endcase -%}
   {%- endfor -%}
+  
 </div>
-<div>
-  <img src={{ block.settings.upload_image|img_url:'200x200' }}" alt=""/>
-</div>
+
 {% schema %}
 {
   "name": "section name",
