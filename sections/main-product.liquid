@@ -166,6 +166,10 @@
                 <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
                   {{ product.description }}
                 </div>
+                  <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
+                  <h4>Weight:{{ product.variants.first.weight | weight_with_unit  }}</h4>
+                </div>
+                
               {%- endif -%}
             {%- when 'sku' -%}
               <p
@@ -743,6 +747,11 @@
       "type": "description",
       "name": "t:sections.main-product.blocks.description.name",
       "limit": 1
+    },
+    {
+      "type": "weight",
+      "name":"weight",
+      "limit":1
     },
     {
       "type": "share",
