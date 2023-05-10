@@ -24,40 +24,24 @@
     });
   </script>
   <style>
-    .announcement-bar {
-      background: {{section.settings.colorBackground}};
+    .announcement-bar{
+      background:{{section.settings.colorBackground}};
       position: relative;
       overflow: hidden;
     }
-    .announcement-bar .message {
-      text-align: center;
-      color: {{section.settings.colorText}};
-      padding: 0 7%;
+    .announcement-bar .message{
+      text-align:center;
+      color:{{section.settings.colorText}};
+      padding:0 7%;
     }
-    .announcement-bar .swiper-button-next:after,
-    .announcement-bar .swiper-container-rtl .swiper-button-prev:after,
-    .announcement-bar .swiper-button-prev:after,
-    .announcement-bar .swiper-container-rtl .swiper-button-next:after {
+    .announcement-bar .swiper-button-next:after, .announcement-bar .swiper-container-rtl .swiper-button-prev:after,
+    .announcement-bar .swiper-button-prev:after, .announcement-bar .swiper-container-rtl .swiper-button-next:after{
       font-size: 15px;
-      color: {{section.settings.colorText}};
+      color:{{section.settings.colorText}};
     }
-    {% if section.blocks.size < 2 %}
-    .announcement-bar .swiper-button {
-      display: none !important;
-    }
-    {% endif %}
-
-    /* Media query for slider buttons and message text alignment */
-    @media screen and (max-width: 767px) {
-      .announcement-bar .swiper-button-prev,
-      .announcement-bar .swiper-button-next {
-        top: 50%;
-        transform: translateY(-50%);
-      }
-      .announcement-bar .message {
-        text-align: center;
-      }
-    }
+    {%- if  section.blocks.size < 2 %}
+    .announcement-bar .swiper-button{display:none!important;}
+    {%- endif -%}
   </style>
 {%- endif -%}
 
