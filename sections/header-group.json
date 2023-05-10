@@ -23,7 +23,7 @@
         "794ef506-c3eb-4967-848d-f8a55d386a18"
       ],
       "settings": {
-        "show_announcement_bar": false,
+        "show_announcement_bar": true,
         "autoplay": true,
         "delay": "5000",
         "colorBackground": "#ffffff",
