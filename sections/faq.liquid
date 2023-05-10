@@ -1,11 +1,9 @@
-{% assign images = product.images %}
-
 <div>
   <label for="faq-image-picker">Select an image:</label>
   <select id="faq-image-picker" name="faq-image-picker">
-    {% for image in images %}
-      <option value="{{ image | img_url: '1024x1024' }}">{{ image.alt }}</option>
-    {% endfor %}
+    <option value="https://example.com/image1.jpg">Image 1 Alt Text</option>
+    <option value="https://example.com/image2.jpg">Image 2 Alt Text</option>
+    <option value="https://example.com/image3.jpg">Image 3 Alt Text</option>
   </select>
 </div>
 
