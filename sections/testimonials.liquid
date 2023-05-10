@@ -19,6 +19,9 @@
               {% endif %}
             </blockquote>
           </div>
+               <div>
+  <img src={{ block.settings.upload_image|img_url:'200x200' }}" alt="">
+</div>
         {% endfor %}
       </div>
     </div>
@@ -58,10 +61,19 @@
 "id": "author",
 "label": "Author",
 "default": "Author's name"
-}
+},
+     {
+          "type":"image_picker",
+        
+          "id":"upload_image",
+          "label":"upload a image",
+          
+          "info":"image size will be 200x200px "
+        }
 ]
 }
 ],
+  
 "presets": [
 {
 "name": "Testimonials",
