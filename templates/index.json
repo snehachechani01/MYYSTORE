@@ -62,10 +62,45 @@
         "padding_top": 56,
         "padding_bottom": 68
       }
+    },
+    "c8812982-7247-4f05-aedf-888169383893": {
+      "type": "testimonials",
+      "blocks": {
+        "template--18880150077735__c8812982-7247-4f05-aedf-888169383893-168370233572fe5672-0": {
+          "type": "quote",
+          "settings": {
+            "quote": "<p>BEST<\/p>",
+            "author": "SNeha"
+          }
+        },
+        "template--18880150077735__c8812982-7247-4f05-aedf-888169383893-168370233572fe5672-1": {
+          "type": "quote",
+          "settings": {
+            "quote": "<p>nice<\/p>",
+            "author": "ankit"
+          }
+        },
+        "template--18880150077735__c8812982-7247-4f05-aedf-888169383893-168370233572fe5672-2": {
+          "type": "quote",
+          "settings": {
+            "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.<\/p>",
+            "author": "Author's name"
+          }
+        }
+      },
+      "block_order": [
+        "template--18880150077735__c8812982-7247-4f05-aedf-888169383893-168370233572fe5672-0",
+        "template--18880150077735__c8812982-7247-4f05-aedf-888169383893-168370233572fe5672-1",
+        "template--18880150077735__c8812982-7247-4f05-aedf-888169383893-168370233572fe5672-2"
+      ],
+      "settings": {
+        "title": "Testimonials"
+      }
     }
   },
   "order": [
     "image-with-text",
-    "featured-collection"
+    "featured-collection",
+    "c8812982-7247-4f05-aedf-888169383893"
   ]
 }
