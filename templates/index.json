@@ -22,7 +22,11 @@
         "heading",
         "button"
       ],
+      "custom_css": [
+
+      ],
       "settings": {
+        "image": "shopify:\/\/shop_images\/working-from-home.jpg",
         "height": "large",
         "desktop_image_width": "large",
         "layout": "text_first",
