@@ -25,10 +25,10 @@
       "settings": {
         "show_announcement_bar": true,
         "autoplay": true,
-        "delay": "5000",
+        "delay": "1000",
         "colorBackground": "#ffffff",
         "colorText": "#000000",
-        "content_alignment": "left"
+        "content_alignment": "center"
       }
     },
     "header": {
