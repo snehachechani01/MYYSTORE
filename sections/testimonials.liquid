@@ -1,4 +1,4 @@
-<div class="page-width" data-section-id="{{ section.id }}" data-section-type="quotes">
+<div class="testimonials-section">
   {% if section.settings.title != blank %}
     <div class="section-header text-center">
       <h2>{{ section.settings.title | escape }}</h2>
@@ -6,22 +6,26 @@
   {% endif %}
 
   {% if section.blocks.size > 0 %}
-    <div class="quotes-wrapper">
-      <div class="quotes-slider" id="Quotes-{{ section.id }}" data-count="{{ section.blocks.size }}">
+    <div class="testimonials-wrapper">
+      <div class="testimonials-slider" id="Testimonials-{{ section.id }}" data-count="{{ section.blocks.size }}">
         {% for block in section.blocks %}
-          <div class="quotes-slide--{{ block.id }}" {{ block.shopify_attributes }}>
-            <blockquote class="quotes-slider__text text-center">
-              {% if block.settings.quote != blank %}
-                <div class="rte-setting">{{ block.settings.quote }}</div>
-              {% endif %}
-              {% if block.settings.author != blank %}
-                <cite>{{ block.settings.author | escape }}</cite>
-              {% endif %}
-            </blockquote>
+          <div class="testimonials-slide--{{ block.id }}" {{ block.shopify_attributes }}>
+            <div class="testimonial-box">
+              <div class="testimonial-text">
+                {% if block.settings.quote != blank %}
+                  <p class="testimonial-desc">{{ block.settings.quote }}</p>
+                {% endif %}
+                {% if block.settings.author != blank %}
+                  <p class="testimonial-author">{{ block.settings.author | escape }}</p>
+                {% endif %}
+              </div>
+              <div class="testimonial-image">
+                {% if block.settings.upload_image != blank %}
+                  <img src="{{ block.settings.upload_image | img_url: '200x200', scale: 2 }}" alt="{{ block.settings.author | escape }}" class="testimonial-avatar">
+                {% endif %}
+              </div>
+            </div>
           </div>
-               <div>
-  <img src={{ block.settings.upload_image|img_url:'200x200' }}" alt="">
-</div>
         {% endfor %}
       </div>
     </div>
@@ -31,6 +35,74 @@
     {% include 'no-blocks' %}
   {% endif %}
 </div>
+
+ 
+
+  {% if section.blocks.size == 0 %}
+    {% include 'no-blocks' %}
+  {% endif %}
+</div>
+{% stylesheet %}
+   .testimonials-section {
+  padding: 60px 0;
+}
+
+.section-header h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0 0 30px;
+}
+
+.testimonial-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.testimonial-text {
+  width: 60%;
+}
+
+.testimonial-desc {
+  background: #f7f7f7;
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  margin: 0 20px 0 0;
+}
+
+.testimonial-desc:before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: -10px;
+  right: -10px;
+  background: #f7f7f7;
+  transform: rotate(45deg);
+}
+
+.testimonial-author {
+  font-weight: bold;
+  margin: 10px 0 0;
+}
+
+.testimonial-image {
+  width: 30%;
+  text-align: right;
+}
+
+.testimonial-avatar {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  object-position: center;
+}
+
+  {% endstylesheet %} 
 
 {% schema %}
 {
