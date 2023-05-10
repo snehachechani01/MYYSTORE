@@ -1,13 +1,4 @@
-<div>
-  <label for="faq-image-picker">Select an image:</label>
-  <select id="faq-image-picker" name="faq-image-picker">
-    {% for image in product.images %}
-      <option value="{{ image.alt }}">
-        <img src="{{ image.src | img_url: '200x200' }}" alt="{{ image.alt }}">
-      </option>
-    {% endfor %}
-  </select>
-</div>
+
 
 <div class="rich-text__blocks {{ section.settings.content_alignment }}">
   {%- for block in section.blocks -%}
@@ -22,6 +13,9 @@
         </div>
     {%- endcase -%}
   {%- endfor -%}
+</div>
+<div>
+  <img src={{ section.settings.upload_image|img_url:'200x200' }}" alt=""/>
 </div>
 {% schema %}
 {
@@ -93,6 +87,14 @@
           "default": "Button label sneha",
           "label": "t:sections.rich-text.blocks.buttons.settings.button_label_1.label",
           "info": "t:sections.rich-text.blocks.buttons.settings.button_label_1.info"
+        },
+        {
+          "type":"image_picker",
+        
+          "id":"upload_image",
+          "label":"upload a image",
+          
+          "info":"image size will be 200x200px "
         }
       ]
     }
