@@ -11,22 +11,17 @@
         {% for block in section.blocks %}
           <div class="quotes-slide--{{ block.id }}" {{ block.shopify_attributes }}>
             <div class="testimonial-box">
-              {% if block.settings.upload_image %}
+              {% if block.settings.quote != blank %}
+                <div class="testimonial-description">{{ block.settings.quote }}</div>
+              {% endif %}
+              {% if block.settings.author != blank %}
+                <div class="testimonial-author">{{ block.settings.author | escape }}</div>
+              {% endif %}
+              {% if block.settings.upload_image != blank %}
                 <div class="testimonial-image">
-                  <img
-                    src="{{ block.settings.upload_image | img_url: '500x500' }}"
-                    alt="{{ block.settings.author | escape }}"
-                  >
+                  <img src="{{ block.settings.upload_image | img_url: '200x200', scale: 2 }}" alt="">
                 </div>
               {% endif %}
-              <div class="testimonial-description">
-                {% if block.settings.quote != blank %}
-                  <div class="rte-setting">{{ block.settings.quote }}</div>
-                {% endif %}
-                {% if block.settings.author != blank %}
-                  <div class="author-name">{{ block.settings.author | escape }}</div>
-                {% endif %}
-              </div>
             </div>
           </div>
         {% endfor %}
@@ -39,39 +34,62 @@
   {% endif %}
 </div>
 
-{% stylesheet %}
+<style>
   .testimonial-box {
+    border: 1px solid black;
+    padding: 20px;
+    margin-bottom: 20px;
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
-    background-color: #f2f2f2;
-    border-radius: 10px;
+  }
+  .testimonial-description {
+    flex-basis: 70%;
+    margin-right: 20px;
+  }
+  .testimonial-author {
+    flex-basis: 100%;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  .testimonial-image {
+    flex-basis: 90%;
+    text-align: right;
+  }
+  .testimonial-image img {
+    width:10%;
+    height: 100;
+
+    border-radius: 50%;
+  }
+    .quotes-slider__text {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .quotes-slider__text p {
+    margin-right: 20px;
+    flex: 1;
+  }
+
+  .quotes-slider__text img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+     margin-bottom: 2000px;
+  }
+
+  .quotes-slide {
+    border: 1px solid #ddd;
     padding: 20px;
     margin-bottom: 20px;
   }
 
-  .testimonial-image {
-    width: 100px;
-    height: 100px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 20px;
-    border-radius: 50%;
+  .quotes-slide:last-child {
+    margin-bottom: 0;
   }
-
-  .testimonial-image img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
-  }
-
-  .testimonial-description {
-    flex: 1;
-  }
-{% endstylesheet %}
+</style>
 
 {% schema %}
 {
