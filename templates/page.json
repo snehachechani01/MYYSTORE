@@ -21,21 +21,21 @@
           "type": "quote",
           "settings": {
             "quote": "<ol><li>\"I had a great experience shopping at this mobile store. The staff was very knowledgeable and helped me find the perfect phone for me. The prices were also very reasonable and I couldn't be happier with my purchase.\"<\/li><\/ol>",
-            "author": "Ankit"
+            "author": "-Ankit"
           }
         },
         "template--18880150143271__ad44fefe-5e83-4326-b891-8d1d1534aec7-168370607794d51329-2": {
           "type": "quote",
           "settings": {
             "quote": "<ol><li>\"I recently had to replace my old phone and was dreading the process. However, the staff at this store made the experience so much easier. They were very helpful and patient with all my questions. I ended up finding the perfect phone and am so glad I came to this store.\"<\/li><\/ol>",
-            "author": "Sakshi"
+            "author": "-Sakshi"
           }
         },
         "9ec618f3-2cdc-4a6d-b424-6885ab974400": {
           "type": "quote",
           "settings": {
             "quote": "<ol><li>\"I had a great experience at this mobile store. The staff was very friendly and helpful, and the prices were very reasonable. I was able to find the perfect phone and accessories for my needs. I would definitely recommend this store to anyone looking for a new phone.\"<\/li><\/ol>",
-            "author": "SUDHANSHU"
+            "author": "-SUDHANSHU"
           }
         }
       },
@@ -46,7 +46,7 @@
         "9ec618f3-2cdc-4a6d-b424-6885ab974400"
       ],
       "settings": {
-        "title": "Testimonials"
+        "title": ""
       }
     }
   },
