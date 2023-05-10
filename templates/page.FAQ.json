@@ -15,7 +15,8 @@
           "type": "FAQ",
           "settings": {
             "text": "<p>FAQ2<\/p><p><\/p>",
-            "button_label": "Button label"
+            "button_label": "Button label",
+            "upload_image": "shopify:\/\/shop_images\/working-at-night.jpg"
           }
         },
         "cc81da45-ee52-482e-b3d6-1751660bcc14": {
