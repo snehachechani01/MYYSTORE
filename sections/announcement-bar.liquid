@@ -1,6 +1,6 @@
 {%- if section.blocks.size > 0 and section.settings.show_announcement_bar -%}
   <div class="announcement-bar swiper-container">
-    <div class="messages swiper-wrapper">
+    <div class="messages swiper-wrapper" {{ section.settings.content_alignment }}>
       {%- for block in section.blocks -%}
         <div class="message swiper-slide">{{ block.settings.message }}</div>
       {%- endfor -%}
@@ -76,7 +76,27 @@
         "id": "colorText",
         "label": "Text color",
         "default": "#000"
-      }
+      },
+       {
+      "type": "select",
+      "id": "content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.rich-text.settings.content_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.rich-text.settings.content_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.rich-text.settings.content_alignment.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.rich-text.settings.content_alignment.label"
+    }
 ],
 "blocks": [
       {
