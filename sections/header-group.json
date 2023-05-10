@@ -25,9 +25,9 @@
       "settings": {
         "show_announcement_bar": true,
         "autoplay": true,
-        "delay": "1000",
-        "colorBackground": "#ffffff",
-        "colorText": "#000000",
+        "delay": "2500",
+        "colorBackground": "#fdfbf7",
+        "colorText": "#5e3653",
         "content_alignment": "center"
       }
     },
