@@ -16,10 +16,18 @@
             "quote": "<p>Happy<\/p>",
             "author": "-Sneha"
           }
+        },
+        "978a24c4-7a2b-47d1-bf1d-0fbe50ce5f7c": {
+          "type": "quote",
+          "settings": {
+            "quote": "<p>nice<\/p>",
+            "author": "-Sakshi"
+          }
         }
       },
       "block_order": [
-        "22937b39-09f3-4c60-9f22-bc0081950f6c"
+        "22937b39-09f3-4c60-9f22-bc0081950f6c",
+        "978a24c4-7a2b-47d1-bf1d-0fbe50ce5f7c"
       ],
       "settings": {
         "title": ""
