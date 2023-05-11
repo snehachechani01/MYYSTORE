@@ -23,11 +23,19 @@
             "quote": "<p>nice<\/p>",
             "author": "-Sakshi"
           }
+        },
+        "d0d8c684-ecb0-4119-9f8e-73898a0ff129": {
+          "type": "quote",
+          "settings": {
+            "quote": "<p>Good<\/p>",
+            "author": "xyz"
+          }
         }
       },
       "block_order": [
         "22937b39-09f3-4c60-9f22-bc0081950f6c",
-        "978a24c4-7a2b-47d1-bf1d-0fbe50ce5f7c"
+        "978a24c4-7a2b-47d1-bf1d-0fbe50ce5f7c",
+        "d0d8c684-ecb0-4119-9f8e-73898a0ff129"
       ],
       "settings": {
         "title": ""
