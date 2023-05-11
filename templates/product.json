@@ -52,7 +52,7 @@
         "a87d9f08-75a7-4c05-9c24-0ae0a3bcaced": {
           "type": "text",
           "settings": {
-            "text": "Country Of Origin{{ product.metafields.custom.origin.value }}",
+            "text": "Country Of Origin:{{ product.metafields.custom.origin.value }}",
             "text_style": "body"
           }
         }
