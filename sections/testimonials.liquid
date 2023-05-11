@@ -94,11 +94,12 @@
           <div class="testimonial-text">{{ block.settings.quote }}</div>
           {% if block.settings.author != blank %}
             <div class="testimonial-author">{{ block.settings.author }}</div>
-          {% endif %}
-        </div>
-                <div>
+                       <div>
   <img src={{ block.settings.upload_image|img_url:'200x200' }}" alt="">
 </div>
+          {% endif %}
+        </div>
+   
       {% endfor %}
     </div>
 
