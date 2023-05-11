@@ -62,36 +62,6 @@
   }
 {% endstylesheet %}
 
-{% javascript %}
-  var quotesSlider = document.getElementById("Quotes-{{ section.id }}");
-  var sliderCount = parseInt(quotesSlider.getAttribute("data-count"));
-  var currentIndex = 0;
-  var interval = null;
-
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % sliderCount;
-    var translateX = -currentIndex * quotesSlider.offsetWidth;
-    quotesSlider.style.transform = "translateX(" + translateX + "px)";
-  }
-
-  function startInterval() {
-    if (!interval) {
-      interval = setInterval(nextSlide, 5000);
-    }
-  }
-
-  function stopInterval() {
-    if (interval) {
-      clearInterval(interval);
-      interval = null;
-    }
-  }
-
-  startInterval();
-  quotesSlider.addEventListener("mouseenter", stopInterval);
-  quotesSlider.addEventListener("mouseleave", startInterval);
-{% endjavascript %}
-
 {% schema %}
 {
 "name": "Testimonials",
@@ -156,3 +126,33 @@
 ]
 }
 {% endschema %}
+
+{% javascript %}
+  var quotesSlider = document.getElementById("Quotes-{{ section.id }}");
+  var sliderCount = parseInt(quotesSlider.getAttribute("data-count"));
+  var currentIndex = 0;
+  var interval = null;
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % sliderCount;
+    var translateX = -currentIndex * quotesSlider.offsetWidth;
+    quotesSlider.style.transform = "translateX(" + translateX + "px)";
+  }
+
+  function startInterval() {
+    if (!interval) {
+      interval = setInterval(nextSlide, 5000);
+    }
+  }
+
+  function stopInterval() {
+    if (interval) {
+      clearInterval(interval);
+      interval = null;
+    }
+  }
+
+  startInterval();
+  quotesSlider.addEventListener("mouseenter", stopInterval);
+  quotesSlider.addEventListener("mouseleave", startInterval);
+{% endjavascript %}
