@@ -17,10 +17,19 @@
             "place_text": "intern",
             "review_text": "zsxdcfvgbhnjmk"
           }
+        },
+        "67cb8dd9-4967-40f8-9edb-c16e0d3d31ca": {
+          "type": "text",
+          "settings": {
+            "titletext": "ankit",
+            "place_text": "intern",
+            "review_text": "xcvbhnjmk"
+          }
         }
       },
       "block_order": [
-        "8917c892-2a77-48ea-9d59-2c4080a24070"
+        "8917c892-2a77-48ea-9d59-2c4080a24070",
+        "67cb8dd9-4967-40f8-9edb-c16e0d3d31ca"
       ],
       "settings": {
         "enable_testimonial_section": true,
