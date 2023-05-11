@@ -63,33 +63,34 @@
 {% endstylesheet %}
 
 {% javascript %}
-  var quotesSlider = document.getElementById("Quotes-{{ section.id }}");
-  var sliderCount = parseInt(quotesSlider.getAttribute("data-count"));
-  var currentIndex = 0;
-  var interval = null;
+  var quotesSlider = document.querySelector('[data-section-id="{{ section.id }}"][data-section-type="quotes"] .quotes-slider');
 
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % sliderCount;
-    var translateX = -currentIndex * quotesSlider.offsetWidth;
-    quotesSlider.style.transform = "translateX(" + translateX + "px)";
-  }
+    var sliderCount = parseInt(quotesSlider.getAttribute("data-count"));
+    var currentIndex = 0;
+    var interval = null;
 
-  function startInterval() {
-    if (!interval) {
-      interval = setInterval(nextSlide, 5000);
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % sliderCount;
+      var translateX = -currentIndex * quotesSlider.offsetWidth;
+      quotesSlider.style.transform = "translateX(" + translateX + "px)";
     }
-  }
 
-  function stopInterval() {
-    if (interval) {
-      clearInterval(interval);
-      interval = null;
+    function startInterval() {
+      if (!interval) {
+        interval = setInterval(nextSlide, 5000);
+      }
     }
-  }
 
-  startInterval();
-  quotesSlider.addEventListener("mouseenter", stopInterval);
-  quotesSlider.addEventListener("mouseleave", startInterval);
+    function stopInterval() {
+      if (interval) {
+        clearInterval(interval);
+        interval = null;
+      }
+    }
+
+    startInterval();
+    quotesSlider.addEventListener("mouseenter", stopInterval);
+    quotesSlider.addEventListener("mouseleave", startInterval);
 {% endjavascript %}
 
 {% schema %}
