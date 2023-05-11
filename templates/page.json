@@ -33,12 +33,21 @@
             "place_text": "vbn",
             "review_text": "bjn"
           }
+        },
+        "35699bbe-b0e8-443f-b055-5601e861f7ed": {
+          "type": "text",
+          "settings": {
+            "titletext": "vghbnj",
+            "place_text": "hb jnkm",
+            "review_text": "hjnm"
+          }
         }
       },
       "block_order": [
         "8917c892-2a77-48ea-9d59-2c4080a24070",
         "67cb8dd9-4967-40f8-9edb-c16e0d3d31ca",
-        "3e6f94a1-c5c0-44cf-8f15-4713d0577456"
+        "3e6f94a1-c5c0-44cf-8f15-4713d0577456",
+        "35699bbe-b0e8-443f-b055-5601e861f7ed"
       ],
       "settings": {
         "enable_testimonial_section": true,
