@@ -10,47 +10,18 @@
     "ad44fefe-5e83-4326-b891-8d1d1534aec7": {
       "type": "testimonials",
       "blocks": {
-        "8917c892-2a77-48ea-9d59-2c4080a24070": {
-          "type": "text",
+        "22937b39-09f3-4c60-9f22-bc0081950f6c": {
+          "type": "quote",
           "settings": {
-            "titletext": "Sneha",
-            "place_text": "intern",
-            "review_text": "zsxdcfvgbhnjmk"
-          }
-        },
-        "67cb8dd9-4967-40f8-9edb-c16e0d3d31ca": {
-          "type": "text",
-          "settings": {
-            "titletext": "ankit",
-            "place_text": "intern",
-            "review_text": "xcvbhnjmk"
-          }
-        },
-        "3e6f94a1-c5c0-44cf-8f15-4713d0577456": {
-          "type": "text",
-          "settings": {
-            "titletext": "sdfvtgbh",
-            "place_text": "vbn",
-            "review_text": "bjn"
-          }
-        },
-        "35699bbe-b0e8-443f-b055-5601e861f7ed": {
-          "type": "text",
-          "settings": {
-            "titletext": "vghbnj",
-            "place_text": "hb jnkm",
-            "review_text": "hjnm"
+            "quote": "<p>Happy<\/p>",
+            "author": "-Sneha"
           }
         }
       },
       "block_order": [
-        "8917c892-2a77-48ea-9d59-2c4080a24070",
-        "67cb8dd9-4967-40f8-9edb-c16e0d3d31ca",
-        "3e6f94a1-c5c0-44cf-8f15-4713d0577456",
-        "35699bbe-b0e8-443f-b055-5601e861f7ed"
+        "22937b39-09f3-4c60-9f22-bc0081950f6c"
       ],
       "settings": {
-        "enable_testimonial_section": true,
         "title": ""
       }
     }
