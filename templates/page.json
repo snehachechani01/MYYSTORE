@@ -30,14 +30,16 @@
           "type": "quote",
           "settings": {
             "quote": "<ol><li>\"I recently purchased a new phone from this store and I couldn't be happier with my purchase. The phone is of great quality and the staff was very helpful throughout the whole process.\"<\/li><\/ol>",
-            "author": "-Ankit"
+            "author": "-Ankit",
+            "upload_image": "shopify:\/\/shop_images\/t2.jpg"
           }
         },
         "172d6438-595a-4193-b96f-f20d8b7bb4e8": {
           "type": "quote",
           "settings": {
             "quote": "<ol><li>\"I have been a customer of this mobile store for years and I have always been satisfied with their products and services. They have everything I need for my mobile devices and their prices are unbeatable.\"<\/li><\/ol>",
-            "author": "-Sudhanshu"
+            "author": "-Sudhanshu",
+            "upload_image": "shopify:\/\/shop_images\/t1.jpg"
           }
         }
       },
