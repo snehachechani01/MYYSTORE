@@ -1,84 +1,71 @@
-{% if section.blocks.size > 0 %}
-  <div class="quotes-wrapper swiper-container">
-    <div class="quotes-slider swiper-wrapper" id="Quotes-{{ section.id }}" data-count="{{ section.blocks.size }}">
-      {% for block in section.blocks %}
-        <div class="quotes-slide--{{ block.id }} swiper-slide" {{ block.shopify_attributes }}>
-          <div class="testimonial-box">
-            {% if block.settings.quote != blank %}
-              <div class="testimonial-description">{{ block.settings.quote }}</div>
-            {% endif %}
-            {% if block.settings.author != blank %}
-              <div class="testimonial-author">{{ block.settings.author | escape }}</div>
-            {% endif %}
-            {% if block.settings.upload_image != blank %}
-              <div class="testimonial-image">
-                <img src="{{ block.settings.upload_image | img_url: '200x200', scale: 2 }}" alt="">
-              </div>
-            {% endif %}
-          </div>
-        </div>
-      {% endfor %}
+<div class="page-width" data-section-id="{{ section.id }}" data-section-type="quotes">
+  {% if section.settings.title != blank %}
+    <div class="section-header text-center">
+      <h2>{{ section.settings.title | escape }}</h2>
     </div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-  </div>
-{% endif %}
+  {% endif %}
 
-{% if section.blocks.size == 0 %}
-  {% include 'no-blocks' %}
-{% endif %}
+  {% if section.blocks.size > 0 %}
+    <div class="quotes-wrapper">
+      <div class="quotes-slider" id="Quotes-{{ section.id }}" data-count="{{ section.blocks.size }}">
+        {% for block in section.blocks %}
+          <div class="quotes-slide--{{ block.id }}" {{ block.shopify_attributes }}>
+            <div class="testimonial-box">
+              {% if block.settings.quote != blank %}
+                <div class="testimonial-description">{{ block.settings.quote }}</div>
+              {% endif %}
+              {% if block.settings.author != blank %}
+                <div class="testimonial-author">{{ block.settings.author | escape }}</div>
+              {% endif %}
+              {% if block.settings.upload_image != blank %}
+                <div class="testimonial-image">
+                  <img src="{{ block.settings.upload_image | img_url: '200x200', scale: 2 }}" alt="">
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
 
-<script src="//cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-
-<script>
-  const quotesSwiper = new Swiper('.quotes-slider', {
-    loop: true,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
+  {% if section.blocks.size == 0 %}
+    {% include 'no-blocks' %}
+  {% endif %}
+</div>
+{% javascript %}
+  $(document).ready(function() {
+    // Initialize slick slider
+    $('#Quotes-{{ section.id }} .quotes-slider').slick({
+      autoplay: true, // Add autoplay option
+      autoplaySpeed: 5000, // Set duration between slide transitions
+      arrows: false,
+      dots: true,
+      infinite: true,
+      speed: 500,
+      fade: true,
+      cssEase: 'linear'
+    });
   });
-</script>
+{% endjavascript %}
 
 {% stylesheet %}
-  .quotes-wrapper {
-    position: relative;
-    overflow: hidden;
-  }
-
   .testimonial-box {
     border: 1px solid black;
     padding: 20px;
     margin-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    min-height: 200px;
   }
-
   .testimonial-description {
-    flex: 1;
-    text-align: center;
     margin-bottom: 10px;
   }
-
   .testimonial-author {
-    flex: 1;
-    text-align: center;
-    font-weight: bold;
+    font-style: italic;
+    font-size: 16px;
   }
-
   .testimonial-image {
-    flex: 1;
-    text-align: center;
-  }
-
-  .swiper-button-next:after, .swiper-container-rtl .swiper-button-prev:after,
-  .swiper-button-prev:after, .swiper-container-rtl .swiper-button-next:after {
-    font-size: 15px;
-    color: #000;
+    margin-left: 20px;
   }
 {% endstylesheet %}
 
