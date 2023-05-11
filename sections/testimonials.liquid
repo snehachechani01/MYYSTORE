@@ -80,6 +80,16 @@
   #{{ section_id }} .slick-next {
     background-color: red;
   }
+  #{{ section_id }} .testimonial-image {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+#{{ section_id }} .testimonial-image img {
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: contain;
+}
 {% endstylesheet %}
 
 {% if section.blocks.size > 0 %}
