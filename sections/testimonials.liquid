@@ -34,7 +34,7 @@
           "id":"upload_image",
           "label":"upload a image",
           
-          "info":"image size will be 100x100px "
+          "info":"image size will be 200x200px "
         }
       ]
     }
@@ -61,7 +61,7 @@
 
 {% assign section_id = section.id | handleize %}
 
-{% stylesheet %}
+<style>
     #{{ section_id }} .testimonial-slider {
       margin: 0 auto;
       max-width: 700px;
@@ -90,7 +90,7 @@
   max-height: 200px;
   object-fit: contain;
 }
-{% endstylesheet %}
+</style>
 
 {% if section.blocks.size > 0 %}
   <section id="{{ section_id }}">
@@ -105,7 +105,7 @@
           {% if block.settings.author != blank %}
             <div class="testimonial-author">{{ block.settings.author }}</div>
                        <div>
-  <img src={{ block.settings.upload_image|img_url:'100x100' }}" alt="">
+  <img src={{ block.settings.upload_image|img_url:'200x200' }}" alt="">
 </div>
           {% endif %}
         </div>
