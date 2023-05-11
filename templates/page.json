@@ -25,11 +25,20 @@
             "place_text": "intern",
             "review_text": "xcvbhnjmk"
           }
+        },
+        "3e6f94a1-c5c0-44cf-8f15-4713d0577456": {
+          "type": "text",
+          "settings": {
+            "titletext": "sdfvtgbh",
+            "place_text": "vbn",
+            "review_text": "bjn"
+          }
         }
       },
       "block_order": [
         "8917c892-2a77-48ea-9d59-2c4080a24070",
-        "67cb8dd9-4967-40f8-9edb-c16e0d3d31ca"
+        "67cb8dd9-4967-40f8-9edb-c16e0d3d31ca",
+        "3e6f94a1-c5c0-44cf-8f15-4713d0577456"
       ],
       "settings": {
         "enable_testimonial_section": true,
