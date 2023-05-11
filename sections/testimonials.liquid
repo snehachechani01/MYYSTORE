@@ -1,32 +1,6 @@
-<div class="page-width" data-section-id="{{ section.id }}" data-section-type="quotes">
-  {% if section.settings.title != blank %}
-    <div class="section-header text-center">
-      <h2>{{ section.settings.title | escape }}</h2>
-    </div>
-  {% endif %}
-
-  {% if section.blocks.size > 0 %}
-    <div class="quotes-wrapper">
-      <div class="quotes-slider" id="Quotes-{{149039743271 }}" data-count="{{ section.blocks.size }}">
-        {% for block in section.blocks %}
-          <div class="quotes-slide" {{ block.shopify_attributes }}>
-            <blockquote class="quotes-slider__text text-center">
-              {% if block.settings.quote != blank %}
-                <div class="rte-setting">{{ block.settings.quote }}</div>
-              {% endif %}
-              {% if block.settings.author != blank %}
-                <cite>{{ block.settings.author | escape }}</cite>
-              {% endif %}
-            </blockquote>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-  {% endif %}
-
-  {% if section.blocks.size == 0 %}
-  {% endif %}
-</div>
+{% comment %}
+  Testimonials Section
+{% endcomment %}
 
 {% schema %}
 {
@@ -49,8 +23,8 @@
         {
           "type": "richtext",
           "id": "quote",
-          "label": "Text",
-          "default": "<p>Add customer reviews and testimonials to showcase your store’s happy Customers.</p>"
+          "label": "Quote",
+          "default": "<p>Add customer reviews and testimonials to showcase your store's happy customers.</p>"
         },
         {
           "type": "text",
@@ -81,34 +55,62 @@
 }
 {% endschema %}
 
-<script>
-  // Wait for the page to load before initializing the slider
-  document.addEventListener("DOMContentLoaded", function() {
-    // Initialize the slider
-    var slider = document.querySelector("#Quotes-{{149039743271 }} .quotes-slider");
-    var slides = slider.querySelectorAll(".quotes-slide");
-    var slideCount = slides.length;
-    var currentIndex = 0;
+{% assign section_id = section.id | handleize %}
 
-    // Set up the next slide
-    function nextSlide() {
-      // Move the slider to the next slide
-      currentIndex++;
-      if (currentIndex >= slideCount) {
-        currentIndex = 0;
-      }
-      slider.style.transform = "translateX(" + (-currentIndex * 100 / slideCount) + "%)";
-    }
+{% comment %}
+  Testimonials Section CSS
+{% endcomment %}
 
-    // Start the slideshow
-    var intervalId = setInterval(nextSlide, 5000);
+<style>
+  #{{ section_id }} .testimonial-slider {
+    margin: 0 auto;
+    max-width: 700px;
+  }
+  #{{ section_id }} .testimonial {
+    text-align: center;
+  }
+  #{{ section_id }} .testimonial-text {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  #{{ section_id }} .testimonial-author {
+    font-size: 1.2rem;
+  }
+</style>
 
-    // Pause the slideshow when the user interacts with it
-    slider.addEventListener("mouseover", function() {
-      clearInterval(intervalId);
-    });
-    slider.addEventListener("mouseout", function() {
-      intervalId = setInterval(nextSlide, 5000);
-    });
-  });
-</script>
+{% comment %}
+  Testimonials Section HTML
+{% endcomment %}
+
+{% if section.blocks.size > 0 %}
+  <section id="{{ section_id }}">
+    {% if section.settings.title != blank %}
+      <h2 class="text-center">{{ section.settings.title }}</h2>
+    {% endif %}
+
+    <div class="testimonial-slider">
+      {% for block in section.blocks %}
+        <div class="testimonial">
+          <div class="testimonial-text">{{ block.settings.quote }}</div>
+          {% if block.settings.author != blank %}
+            <div class="testimonial-author">{{ block.settings.author }}</div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('.testimonial-slider').slick({
+          dots: true,
+          infinite: true,
+          speed: 300,
+          slidesToShow: 1,
+          adaptiveHeight: true
+        });
+      });
+    </script>
+  </section>
+{% endif %}
