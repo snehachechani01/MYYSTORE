@@ -1,9 +1,9 @@
- {%- for block in section.blocks -%}
-    {%- case block.type -%}
-      {%- when 'FAQ' -%}
+
 
 <div class="rich-text__blocks {{ block.settings.content_alignment }}">
- 
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'FAQ' -%}
       
         <button class="accordion" style="background-color: {{ block.settings.accordion_color }}">
           <span class="toggle-icon"></span>
