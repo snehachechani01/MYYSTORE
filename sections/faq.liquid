@@ -1,5 +1,5 @@
 
-
+<script src="{{ 'slider.js' | asset_url }}" defer="defer"></script>
 <div class="rich-text__blocks {{ block.settings.content_alignment }}">
   {%- for block in section.blocks -%}
     {%- case block.type -%}
@@ -153,19 +153,3 @@
     }
 {% endstylesheet %}
 
-{% javascript %}
-  var acc = document.getElementsByClassName("accordion");
-  var i;
-
-  for (i = 0; i < acc.length; i++) {
-  	acc[i].addEventListener("click", function() {
-  		this.classList.toggle("active");
-  		var panel = this.nextElementSibling;
-  		if (panel.style.display === "block") {
-  			panel.style.display = "none";
-  		} else {
-  			panel.style.display = "block";
-  		}
-  	});
-  }
-{% endjavascript %}
