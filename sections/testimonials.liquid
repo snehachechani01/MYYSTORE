@@ -1,3 +1,71 @@
+
+{% if section.blocks.size > 0 %}
+  <section id="{{ section_id }}">
+    {% if section.settings.title != blank %}
+      <h2 class="text-center">{{ section.settings.title }}</h2>
+    {% endif %}
+
+    <div class="testimonial-slider">
+      {% for block in section.blocks %}
+        <div class="testimonial">
+          <div class="testimonial-text">{{ block.settings.quote }}</div>
+          {% if block.settings.author != blank %}
+            <div class="testimonial-author">{{ block.settings.author }}</div>
+                       <div>
+  <img src={{ block.settings.upload_image|img_url:'200x200' }}" alt="">
+</div>
+          {% endif %}
+        </div>
+   
+      {% endfor %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('.testimonial-slider').slick({
+          dots: true,
+          infinite: true,
+          speed: 300,
+          slidesToShow: 1,
+          adaptiveHeight: true
+        });
+      });
+    </script>
+  </section>
+{% endif %}
+<style>
+    #{{ section_id }} .testimonial-slider {
+      margin: 0 auto;
+      max-width: 700px;
+    }
+    #{{ section_id }} .testimonial {
+      text-align: center;
+    }
+    #{{ section_id }} .testimonial-text {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    #{{ section_id }} .testimonial-author {
+      font-size: 1.2rem;
+    }
+    #{{ section_id }} .slick-prev,
+  #{{ section_id }} .slick-next {
+    background-color: red;
+  }
+  #{{ section_id }} .testimonial-image {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+#{{ section_id }} .testimonial-image img {
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: contain;
+}
+</style>
+
 {% schema %}
 {
   "name": "Testimonials",
@@ -61,70 +129,3 @@
 
 {% assign section_id = section.id | handleize %}
 
-<style>
-    #{{ section_id }} .testimonial-slider {
-      margin: 0 auto;
-      max-width: 700px;
-    }
-    #{{ section_id }} .testimonial {
-      text-align: center;
-    }
-    #{{ section_id }} .testimonial-text {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    #{{ section_id }} .testimonial-author {
-      font-size: 1.2rem;
-    }
-    #{{ section_id }} .slick-prev,
-  #{{ section_id }} .slick-next {
-    background-color: red;
-  }
-  #{{ section_id }} .testimonial-image {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
-}
-#{{ section_id }} .testimonial-image img {
-  max-width: 200px;
-  max-height: 200px;
-  object-fit: contain;
-}
-</style>
-
-{% if section.blocks.size > 0 %}
-  <section id="{{ section_id }}">
-    {% if section.settings.title != blank %}
-      <h2 class="text-center">{{ section.settings.title }}</h2>
-    {% endif %}
-
-    <div class="testimonial-slider">
-      {% for block in section.blocks %}
-        <div class="testimonial">
-          <div class="testimonial-text">{{ block.settings.quote }}</div>
-          {% if block.settings.author != blank %}
-            <div class="testimonial-author">{{ block.settings.author }}</div>
-                       <div>
-  <img src={{ block.settings.upload_image|img_url:'200x200' }}" alt="">
-</div>
-          {% endif %}
-        </div>
-   
-      {% endfor %}
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <script>
-      $(document).ready(function(){
-        $('.testimonial-slider').slick({
-          dots: true,
-          infinite: true,
-          speed: 300,
-          slidesToShow: 1,
-          adaptiveHeight: true
-        });
-      });
-    </script>
-  </section>
-{% endif %}
