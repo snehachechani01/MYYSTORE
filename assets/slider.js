@@ -1,10 +1,8 @@
-const swiper = new Swiper('.swiper-container', {
-      {%- if section.settings.autoplay %}
-      autoplay: {delay: {{section.settings.delay}} },
-      {%- endif -%}
-      loop: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
+  $(".testimonial-slider").slick({
+    dots: true,
+    arrows: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    adaptiveHeight: true
+  });
