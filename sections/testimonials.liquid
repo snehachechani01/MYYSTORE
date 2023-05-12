@@ -1,149 +1,83 @@
-<script src="{{ 'testimonials.js' | asset_url }}" defer="defer"></script>
-
-{% if section.blocks.size > 0 %}
-  <section id="{{ section_id }}">
-    {% if section.settings.title != blank %}
-      <h2 class="text-center">{{ section.settings.title }}</h2>
-    {% endif %}
-
-    <div class="testimonial-slider">
-      {% for block in section.blocks %}
-        <div class="testimonial">
-          <div class="testimonial-text">{{ block.settings.quote }}</div>
-          {% if block.settings.author != blank %}
-            <div class="testimonial-author">{{ block.settings.author }}</div>
-                       <div>
-  <img src={{ block.settings.upload_image|img_url:'200x200' }}" alt="">
-</div>
-          {% endif %}
-        </div>
-   
-      {% endfor %}
+<div class="page-width" data-section-id="{{ section.id }}" data-section-type="quotes">
+  {% if section.settings.title != blank %}
+    <div class="section-header text-center">
+      <h2>{{ section.settings.title | escape }}</h2>
     </div>
+  {% endif %}
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <script>
-      $(document).ready(function(){
-        $('.testimonial-slider').slick({
-          dots: true,
-          infinite: true,let formData = {
- 'items': [{
-  'id': 36110175633573,
-  'quantity': 2
-  }]
-};
-fetch(window.Shopify.routes.root + 'cart/add.js', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(formData)
-})
-.then(response => {
-  return response.json();
-})
-.catch((error) => {
-  console.error('Error:', error);
-});
-          speed: 300,
-          slidesToShow: 1,
-          adaptiveHeight: true
-        });
-      });
-    </script>
-  </section>
-{% endif %}
+  {% if section.blocks.size > 0 %}
+    <div class="quotes-wrapper">
+      <div class="quotes-slider" id="Quotes-{{ section.id }}" data-count="{{ section.blocks.size }}">
+        {% for block in section.blocks %}
+          <div class="quotes-slide--{{ block.id }}" {{ block.shopify_attributes }}>
+            <blockquote class="quotes-slider__text text-center">
+              {% if block.settings.quote != blank %}
+                <div class="rte-setting">{{ block.settings.quote }}</div>
+              {% endif %}
+              {% if block.settings.author != blank %}
+                <cite>{{ block.settings.author | escape }}</cite>
+              {% endif %}
+            </blockquote>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
 
-<style>
-    #{{ section_id }} .testimonial-slider {
-      margin: 0 auto;
-      max-width: 700px;
-    }
-    #{{ section_id }} .testimonial {
-      text-align: center;
-    }
-    #{{ section_id }} .testimonial-text {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    #{{ section_id }} .testimonial-author {
-      font-size: 1.2rem;
-    }
-    #{{ section_id }} .slick-prev,
-  #{{ section_id }} .slick-next {
-    background-color: red;
-  }
-  #{{ section_id }} .testimonial-image {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
-}
-#{{ section_id }} .testimonial-image img {
-  max-width: 200px;
-  max-height: 200px;
-  object-fit: contain;
-}
-</style>
+  {% if section.blocks.size == 0 %}
+    {% include 'no-blocks' %}
+  {% endif %}
+</div>
+
 {% schema %}
 {
-  "name": "Testimonials",
-  "class": "index-section",
-  "max_blocks": 9,
-  "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Heading",
-      "default": "Testimonials"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "quote",
-      "name": "Testimonial",
-      "settings": [
-        {
-          "type": "richtext",
-          "id": "quote",
-          "label": "Quote",
-          "default": "<p>Add customer reviews and testimonials to showcase your store's happy customers.</p>"
-        },
-        {
-          "type": "text",
-          "id": "author",
-          "label": "Author",
-          "default": "Author's name"
-        },
-          {
-          "type":"image_picker",
-        
-          "id":"upload_image",
-          "label":"upload a image",
-          
-          "info":"image size will be 200x200px "
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Testimonials",
-      "category": "Text",
-      "blocks": [
-        {
-          "type": "quote"
-        },
-        {
-          "type": "quote"
-        },
-        {
-          "type": "quote"
-        }
-      ]
-    }
-  ]
+"name": "Testimonials",
+"class": "index-section",
+"max_blocks": 9,
+"settings": [
+{
+"type": "text",
+"id": "title",
+"label": "Heading",
+"default": "Testimonials"
+}
+],
+"blocks": [
+{
+"type": "quote",
+"name": "Testimonial",
+"settings": [
+{
+"type": "richtext",
+"id": "quote",
+"label": "Text",
+"default": "<p>Add customer reviews and testimonials to showcase your store’s happy Customers.</p>"
+},
+{
+"type": "text",
+"id": "author",
+"label": "Author",
+"default": "Author's name"
+}
+]
+}
+],
+"presets": [
+{
+"name": "Testimonials",
+"category": "Text",
+"blocks": [
+{
+"type": "quote"
+},
+{
+"type": "quote"
+},
+{
+"type": "quote"
+}
+]
+}
+]
 }
 {% endschema %}
-
-{% assign section_id = section.id | handleize %}
