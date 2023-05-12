@@ -319,5 +319,17 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+    {{ 'slick.min.js' | asset_url | script_tag }}
+
+  $(document).ready(function(){
+    $('.testimonial-slider').slick({
+      dots: true,
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 5000,
+    });
+  });
+</script>
+
   </body>
 </html>
