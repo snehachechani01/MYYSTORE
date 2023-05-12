@@ -1,10 +1,18 @@
- const swiper = new Swiper('.custom-testimonial', {
-      {%- if section.settings.autoplay %}
-      autoplay: {delay: {{section.settings.delay}} },
-      {%- endif -%}
-      loop: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    })
+document.addEventListener('DOMContentLoaded', function() {
+  var testimonialsSlider = new Swiper('#Quotes-{{ section.id }}', {
+    loop: true,
+    speed: 600,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
+});
