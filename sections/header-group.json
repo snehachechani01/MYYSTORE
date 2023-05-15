@@ -13,10 +13,20 @@
             "show_text_box": true,
             "text_alignment": "center"
           }
+        },
+        "586212be-93a1-4208-b3d1-15abba7f3341": {
+          "type": "slide",
+          "settings": {
+            "button_style_secondary": false,
+            "message": "DIWALI OFFER AVAILABLE",
+            "show_text_box": true,
+            "text_alignment": "center"
+          }
         }
       },
       "block_order": [
-        "6a5fcd03-ac92-45f8-bf66-7c75386d5253"
+        "6a5fcd03-ac92-45f8-bf66-7c75386d5253",
+        "586212be-93a1-4208-b3d1-15abba7f3341"
       ],
       "settings": {
         "show_announcement_bar": true,
