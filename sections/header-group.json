@@ -5,22 +5,18 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "86b04a81-d8fb-48b2-b136-862270e16684": {
-          "type": "header",
+        "6a5fcd03-ac92-45f8-bf66-7c75386d5253": {
+          "type": "slide",
           "settings": {
-            "message": "WELCOME TO OUR STORE"
-          }
-        },
-        "794ef506-c3eb-4967-848d-f8a55d386a18": {
-          "type": "header",
-          "settings": {
-            "message": "HEAVY DISCOUNTS ARE AVAILABLE"
+            "button_style_secondary": false,
+            "message": "WELCOME TO OUR STORE",
+            "show_text_box": true,
+            "text_alignment": "center"
           }
         }
       },
       "block_order": [
-        "86b04a81-d8fb-48b2-b136-862270e16684",
-        "794ef506-c3eb-4967-848d-f8a55d386a18"
+        "6a5fcd03-ac92-45f8-bf66-7c75386d5253"
       ],
       "settings": {
         "show_announcement_bar": true,
@@ -28,7 +24,9 @@
         "delay": "2500",
         "colorBackground": "#fdfbf7",
         "colorText": "#5e3653",
-        "content_alignment": "center"
+        "content_alignment": "center",
+        "auto_rotate": false,
+        "change_slides_speed": 5
       }
     },
     "header": {
