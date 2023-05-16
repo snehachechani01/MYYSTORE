@@ -12,7 +12,7 @@ window.onload = function() {
           'quantity': 1
         },
         {
-          'id': FREE_PRODUCT_ID, // ID of the free product to be added
+          'id': 8281777439015, // ID of the free product to be added
           'quantity': 1
         }
       ]
