@@ -233,10 +233,10 @@ function addFreeProductToCart(productId, quantity) {
     contentType: 'application/json',
     data: JSON.stringify(formData),
     success: function(response) {
-      console.log('Free product added to cart');
+     alert('Free product added to cart');
     },
     error: function(xhr, status, error) {
-      console.log('Error adding free product to cart:', error);
+      alert('Error adding free product to cart:', error);
     }
   });
 }
