@@ -29,73 +29,10 @@
             "color_scheme": "background-1",
             "text_alignment_mobile": "center"
           }
-        },
-        "54a307d0-9000-4aee-9062-ba64cd034d98": {
-          "type": "slide",
-          "settings": {
-            "quote": "<p>yash<\/p>",
-            "author": "sneha",
-            "image": "shopify:\/\/shop_images\/t2.jpg",
-            "heading": "Image slide",
-            "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "background-2",
-            "text_alignment_mobile": "center"
-          }
-        },
-        "2f5c6f62-2e5f-4eca-989c-8ae157554557": {
-          "type": "slide",
-          "settings": {
-            "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy Customers.<\/p>",
-            "author": "Author's name",
-            "image": "shopify:\/\/shop_images\/tab2.jpg",
-            "heading": "Image slide",
-            "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "background-1",
-            "text_alignment_mobile": "center"
-          }
-        },
-        "6909117c-a2d7-4b8b-baa1-aa8b40de01a3": {
-          "type": "slide",
-          "settings": {
-            "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy Customers.<\/p>",
-            "author": "df",
-            "image": "shopify:\/\/shop_images\/working-at-night.jpg",
-            "heading": "Image slide",
-            "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "background-1",
-            "text_alignment_mobile": "center"
-          }
         }
       },
       "block_order": [
-        "c2ebfee8-a3af-4104-b4f2-e7e44ddf9e39",
-        "54a307d0-9000-4aee-9062-ba64cd034d98",
-        "2f5c6f62-2e5f-4eca-989c-8ae157554557",
-        "6909117c-a2d7-4b8b-baa1-aa8b40de01a3"
+        "c2ebfee8-a3af-4104-b4f2-e7e44ddf9e39"
       ],
       "settings": {
         "layout": "full_bleed",
