@@ -210,8 +210,6 @@ if (!customElements.get('cart-note')) {
       }
   });
 };
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 // Function to check if a specific product is in the cart
 function isProductInCart(productId) {
   return Shopify.cart.items.some(function(item) {
@@ -228,35 +226,49 @@ function addFreeProductToCart(productId, quantity) {
     }]
   };
 
-  jQuery.ajax({
-    type: 'POST',
-    url: '/cart/add.js',
-    dataType: 'json',
-    contentType: 'application/json',
-    data: JSON.stringify(formData),
-    success: function(response) {
-     alert('Free product added to cart');
+  fetch('/cart/add.js', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
     },
-    error: function(xhr, status, error) {
-      alert('Error adding free product to cart:', error);
+    body: JSON.stringify(formData)
+  })
+  .then(function(response) {
+    if (response.ok) {
+      alert('Free product added to cart');
+    } else {
+      throw new Error('Error adding free product to cart');
     }
+  })
+  .catch(function(error) {
+    alert(error);
   });
 }
 
 // Function to fetch the latest total price using the cart.js API
 function fetchLatestTotalPrice() {
-  jQuery.getJSON('/cart.js', function(cart) {
+  fetch('/cart.js')
+  .then(function(response) {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Error fetching cart data');
+    }
+  })
+  .then(function(cart) {
     var totalPrice = cart.total_price;
 
     // Perform the condition check here
     if (totalPrice > 1000 ) {
       addFreeProductToCart(8281777439015, 1);
     }
+  })
+  .catch(function(error) {
+    alert(error);
   });
 }
 
 // Call the fetchLatestTotalPrice function when the page loads
-jQuery(document).ready(function() {
+document.addEventListener('DOMContentLoaded', function() {
   fetchLatestTotalPrice();
 });
-
