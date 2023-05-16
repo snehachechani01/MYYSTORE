@@ -1,4 +1,5 @@
 window.onload = function() {
+    alert ("product has been added")
   const productIdToAdd = 8283789623591; // ID of the product that triggers the free product addition
   
   // Check if the triggering product is in the cart
@@ -19,6 +20,7 @@ window.onload = function() {
     };
   
     fetch(window.Shopify.routes.root + 'cart/add.js', {
+      
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
