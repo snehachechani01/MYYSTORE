@@ -248,7 +248,7 @@ function addFreeProductToCart(productId, quantity) {
             alert('Error adding product to cart!');
           });
       
- );
+ 
 }
 
 // Function to fetch the latest total price using the cart.js API
