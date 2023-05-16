@@ -247,9 +247,7 @@ function addFreeProductToCart(productId, quantity) {
             console.error('Error:', error);
             alert('Error adding product to cart!');
           });
-      } else {
-        // alert('Total price is below 1000. Product not added to cart.');
-      }
+      } 
   .catch(function(error) {
     alert(error);
   });
