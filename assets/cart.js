@@ -221,7 +221,7 @@ function isProductInCart(productId) {
 function addFreeProductToCart(productId, quantity) {
   var formData = {
     'items': [{
-      'id': productId,
+      'id': 8281777439015,
       'quantity': quantity
     }]
   };
