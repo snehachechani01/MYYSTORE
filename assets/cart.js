@@ -247,10 +247,8 @@ function addFreeProductToCart(productId, quantity) {
             console.error('Error:', error);
             alert('Error adding product to cart!');
           });
-      } 
-  .catch(function(error) {
-    alert(error);
-  });
+      
+ );
 }
 
 // Function to fetch the latest total price using the cart.js API
