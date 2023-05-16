@@ -26,7 +26,9 @@ window.onload = function() {
       body: JSON.stringify(formData)
     })
     .then(response => {
+      alert ("product added")
       return response.json();
+      
     })
     .catch((error) => {
       console.error('Error:', error);
