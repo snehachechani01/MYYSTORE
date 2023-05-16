@@ -8,7 +8,7 @@ window.onload = function() {
     let formData = {
       'items': [
         {
-          'id': productIdToAdd,
+          'id': 8283789623591
           'quantity': 1
         },
         {
