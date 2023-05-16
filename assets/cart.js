@@ -210,6 +210,8 @@ if (!customElements.get('cart-note')) {
       }
   });
 };
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 // Function to check if a specific product is in the cart
 function isProductInCart(productId) {
   return Shopify.cart.items.some(function(item) {
