@@ -247,7 +247,7 @@ function fetchLatestTotalPrice() {
     var totalPrice = cart.total_price;
 
     // Perform the condition check here
-    if (totalPrice > 1000 && !isProductInCart(8281777439015)) {
+    if (totalPrice > 1000 ) {
       addFreeProductToCart(8281777439015, 1);
     }
   });
