@@ -241,7 +241,7 @@ function addFreeProductToCart(productId, quantity) {
     }
   })
   .catch(function(error) {
-    alert(error);
+    alert("not ");
   });
 }
 
