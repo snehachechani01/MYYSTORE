@@ -2,7 +2,7 @@
     if({{ cart.total_price }}>100000){
       let formData = {
         'items': [{
-          'id': 45111622861096,
+          'id': 8281752863015,
           'quantity': 1
         }]
       };
