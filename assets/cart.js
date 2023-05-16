@@ -249,38 +249,26 @@ function addFreeProductToCart(productId, quantity) {
 }
 
 // Function to fetch the latest total price using the cart.js API
-// Function to fetch the latest total price using the cart.js API
 function fetchLatestTotalPrice() {
   fetch('/cart.js')
-    .then(function(response) {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error('Error fetching cart data');
-      }
-    })
-    .then(function(cart) {
-      var totalPrice = cart.total_price;
+  .then(function(response) {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Error fetching cart data');
+    }
+  })
+  .then(function(cart) {
+    var totalPrice = cart.total_price;
 
-      // Subtract the cost of the free product if it is in the cart
-      var freeProductPrice = 0;
-      if (isProductInCart(44976669393191)) {
-        var freeProduct = cart.items.find(function(item) {
-          return item.product_id === 44976669393191;
-        });
-        freeProductPrice = freeProduct.price;
-      }
-
-      var updatedTotalPrice = totalPrice - freeProductPrice;
-
-      // Perform the condition check here
-      if (updatedTotalPrice > 10000) {
-        addFreeProductToCart(44976669393191, 1);
-      }
-    })
-    .catch(function(error) {
-      alert(error);
-    });
+    // Perform the condition check here
+    if (totalPrice > 10000 ) {
+      addFreeProductToCart(44976669393191, 1);
+    }
+  })
+  .catch(function(error) {
+    alert(error);
+  });
 }
 
 // Call the fetchLatestTotalPrice function when the page loads
