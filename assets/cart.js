@@ -226,20 +226,30 @@ function addFreeProductToCart(productId, quantity) {
     }]
   };
 
-  fetch(window.Shopify.routes.root+ '/cart/add.js', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(formData)
-  })
-  .then(function(response) {
-    if (response.ok) {
-      alert('Free product added to cart');
-    } else {
-      throw new Error('Error adding free product to cart');
-    }
-  })
+      fetch(window.Shopify.routes.root + 'cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then(cartData => {
+            console.log('Product added to cart:', cartData);
+            // alert('Product added to cart!');
+            // if (cartData.items.find(item => item.variant_id === 45057131315495)) {
+            //   removeProductFromCart(productKey);
+            // }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            alert('Error adding product to cart!');
+          });
+      } else {
+        // alert('Total price is below 1000. Product not added to cart.');
+      }
   .catch(function(error) {
     alert(error);
   });
