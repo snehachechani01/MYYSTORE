@@ -265,7 +265,7 @@ function fetchLatestTotalPrice() {
     var totalPrice = cart.total_price;
 
     // Perform the condition check here
-    if (totalPrice > 1000 ) {
+    if (totalPrice > 10000 ) {
       addFreeProductToCart(44976669393191, 1);
     }
   })
