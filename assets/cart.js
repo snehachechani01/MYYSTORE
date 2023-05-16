@@ -210,41 +210,51 @@ if (!customElements.get('cart-note')) {
       }
   });
 };
-document.addEventListener("DOMContentLoaded", function() {
-  alert("product has been added");
+// Function to check if a specific product is in the cart
+function isProductInCart(productId) {
+  return Shopify.cart.items.some(function(item) {
+    return item.product_id === productId;
+  });
+}
 
-  const productIdToAdd = 8283789623591; // ID of the product that triggers the free product addition
+// Function to add a free product to the cart
+function addFreeProductToCart(productId, quantity) {
+  var formData = {
+    'items': [{
+      'id': productId,
+      'quantity': quantity
+    }]
+  };
 
-  // Check if the triggering product is in the cart
-  const isTriggerProductInCart = {{ cart.items | map: 'product.id' | includes: productIdToAdd }};
+  jQuery.ajax({
+    type: 'POST',
+    url: '/cart/add.js',
+    dataType: 'json',
+    contentType: 'application/json',
+    data: JSON.stringify(formData),
+    success: function(response) {
+      console.log('Free product added to cart');
+    },
+    error: function(xhr, status, error) {
+      console.log('Error adding free product to cart:', error);
+    }
+  });
+}
 
-  if (isTriggerProductInCart) {
-    let formData = {
-      'items': [
-        {
-          'id': productIdToAdd,
-          'quantity': 1
-        },
-        {
-          'id': 8281777439015, // ID of the free product to be added
-          'quantity': 1
-        }
-      ]
-    };
+// Function to fetch the latest total price using the cart.js API
+function fetchLatestTotalPrice() {
+  jQuery.getJSON('/cart.js', function(cart) {
+    var totalPrice = cart.total_price;
 
-    fetch(window.Shopify.routes.root + 'cart/add.js', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    })
-      .then(response => {
-        alert("product added");
-        return response.json();
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-  }
+    // Perform the condition check here
+    if (totalPrice > 1000 && !isProductInCart(FREE_PRODUCT_ID)) {
+      addFreeProductToCart(FREE_PRODUCT_ID, 1);
+    }
+  });
+}
+
+// Call the fetchLatestTotalPrice function when the page loads
+jQuery(document).ready(function() {
+  fetchLatestTotalPrice();
 });
+
