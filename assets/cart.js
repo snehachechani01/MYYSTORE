@@ -248,7 +248,7 @@ function fetchLatestTotalPrice() {
 
     // Perform the condition check here
     if (totalPrice > 1000 && !isProductInCart(FREE_PRODUCT_ID)) {
-      addFreeProductToCart(FREE_PRODUCT_ID, 1);
+      addFreeProductToCart(8281777439015, 1);
     }
   });
 }
