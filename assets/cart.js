@@ -241,7 +241,7 @@ function addFreeProductToCart(productId, quantity) {
     }
   })
   .catch(function(error) {
-    alert("not ");
+    alert(error);
   });
 }
 
@@ -260,7 +260,7 @@ function fetchLatestTotalPrice() {
 
     // Perform the condition check here
     if (totalPrice > 1000 ) {
-      addFreeProductToCart(8281777439015, 1);
+      addFreeProductToCart(44976669393191, 1);
     }
   })
   .catch(function(error) {
