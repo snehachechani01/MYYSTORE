@@ -1,0 +1,71 @@
+<script>
+  // Function to add the free product to the cart
+  function addFreeProductToCart(productId, quantity) {
+    var params = {
+      quantity: quantity,
+      id: productId
+    };
+
+    $.ajax({
+      type: 'POST',
+      url: '/cart/add.js',
+      data: params,
+      dataType: 'json',
+      success: function () {
+        // Cart update successful
+        alert('Free product added to cart!');
+        
+        // Refresh the cart totals
+        refreshCartTotals();
+      },
+      error: function () {
+        // Error occurred
+        alert('Error adding free product to cart!');
+      }
+    });
+  }
+
+  // Function to check the cart total and add the free product
+  function checkCartTotal() {
+    $.ajax({
+      type: 'GET',
+      url: '/cart.js',
+      dataType: 'json',
+      success: function(cart) {
+        var cartTotal = cart.total_price;
+
+        // Change the condition to match your currency and threshold
+        if (cartTotal >= 10000) {
+          // Call the function to add the free product
+          addFreeProductToCart('44976669393191', 1);
+        }
+      },
+      error: function() {
+        // Error occurred
+        alert('Error retrieving cart information!');
+      }
+    });
+  }
+
+  // Function to refresh the cart totals
+  function refreshCartTotals() {
+    $.ajax({
+      type: 'GET',
+      url: '/cart.js',
+      dataType: 'json',
+      success: function(cart) {
+        // Update the cart totals displayed on the page
+        $('.cart-total').text('{{ shop.money_format }}' + cart.total_price);
+      },
+      error: function() {
+        // Error occurred
+        alert('Error retrieving cart information!');
+      }
+    });
+  }
+
+  // Call the checkCartTotal function when the document is ready
+  $(document).ready(function() {
+    checkCartTotal();
+  });
+</script>
