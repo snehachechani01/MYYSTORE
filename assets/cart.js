@@ -274,7 +274,7 @@ if (!customElements.get('cart-note')) {
         // Change the condition to match your currency and threshold
         if (cartTotal >= 10000) {
           // Call the function to add the free product
-          addFreeProductToCart('FREE_PRODUCT_ID');
+          addFreeProductToCart('44976669393191');
         }
       },
       error: function() {
