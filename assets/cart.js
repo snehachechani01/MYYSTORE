@@ -240,10 +240,13 @@ function addFreeProductToCart(productId, quantity) {
     })
     .then(cartData => {
       console.log('Product added to cart:', cartData);
-      // Disable the quantity input field for the free product
-      var freeProductInput = document.querySelector(`[data-id="${productId}"] input[name="updates[]"]`);
+      // Remove the quantity input field for the free product
+      var freeProductInput = document.querySelector(`[data-id="${productId}"]`);
       if (freeProductInput) {
-        freeProductInput.disabled = true;
+        freeProductInput.parentNode.removeChild(freeProductInput);
+        // Dispatch a custom event
+        var event = new Event('freeProductAdded');
+        document.dispatchEvent(event);
       }
     })
     .catch(error => {
