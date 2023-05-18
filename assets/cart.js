@@ -211,7 +211,7 @@ if (!customElements.get('cart-note')) {
   });
 };
 
- // Function to check if a specific product is in the cart
+// Function to check if a specific product is in the cart
 function isProductInCart(productId) {
   return Shopify.cart.items.some(function(item) {
     return item.product_id === productId;
@@ -269,7 +269,7 @@ function fetchLatestTotalPrice() {
     var totalPrice = cart.total_price;
 
     // Perform the condition check here
-    if (totalPrice > 10000 ) {
+    if (totalPrice > 10000) {
       addFreeProductToCart(44976669393191, 1);
     }
   })
@@ -281,4 +281,10 @@ function fetchLatestTotalPrice() {
 // Call the fetchLatestTotalPrice function when the page loads
 document.addEventListener('DOMContentLoaded', function() {
   fetchLatestTotalPrice();
+
+  // Add event listener for the 'freeProductAdded' event
+  document.addEventListener('freeProductAdded', function() {
+    // Perform additional actions here after the free product is added
+    console.log('Free product added. Additional actions can be performed here.');
+  });
 });
