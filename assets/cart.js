@@ -210,7 +210,7 @@ if (!customElements.get('cart-note')) {
       }
   });
 };
-<script>
+
   // Function to check if the free product is already in the cart
   function isFreeProductInCart(productId) {
     var isFreeProductInCart = false;
@@ -319,4 +319,4 @@ if (!customElements.get('cart-note')) {
       return false;
     });
   });
-</script>
+
