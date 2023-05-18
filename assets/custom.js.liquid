@@ -15,7 +15,7 @@
   }
 
   // Function to add the free product to the cart
-  function addFreeProductToCart(productId, quantity) {
+  function addFreeProductToCart(productId) {
     // Check if the free product is already in the cart
     if (isFreeProductInCart(productId)) {
       alert('Free product is already in the cart.');
@@ -23,8 +23,13 @@
     }
 
     var params = {
-      quantity: quantity,
+      quantity: 1,
       id: productId
+    };
+
+    // Override the price of the free product to 0
+    params.properties = {
+      'PriceOverride': '0.00'
     };
 
     $.ajax({
@@ -58,7 +63,7 @@
         // Change the condition to match your currency and threshold
         if (cartTotal >= 10000) {
           // Call the function to add the free product
-          addFreeProductToCart('44976669393191', 1);
+          addFreeProductToCart('44976669393191');
         }
       },
       error: function() {
