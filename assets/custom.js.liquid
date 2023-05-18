@@ -24,12 +24,8 @@
 
     var params = {
       quantity: 1,
-      id: productId
-    };
-
-    // Override the price of the free product to 0
-    params.properties = {
-      'PriceOverride': '0.00'
+      id: productId,
+      price: 0
     };
 
     $.ajax({
