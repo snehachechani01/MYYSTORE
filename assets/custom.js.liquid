@@ -1,6 +1,27 @@
 <script>
+  // Function to check if the free product is already in the cart
+  function isFreeProductInCart(productId) {
+    var isFreeProductInCart = false;
+
+    // Loop through the cart items to check if the free product is present
+    {% for item in cart.items %}
+      if (item.product_id == productId) {
+        isFreeProductInCart = true;
+        break;
+      }
+    {% endfor %}
+
+    return isFreeProductInCart;
+  }
+
   // Function to add the free product to the cart
   function addFreeProductToCart(productId, quantity) {
+    // Check if the free product is already in the cart
+    if (isFreeProductInCart(productId)) {
+      alert('Free product is already in the cart.');
+      return;
+    }
+
     var params = {
       quantity: quantity,
       id: productId
@@ -14,7 +35,7 @@
       success: function () {
         // Cart update successful
         alert('Free product added to cart!');
-        
+
         // Refresh the cart totals
         refreshCartTotals();
       },
