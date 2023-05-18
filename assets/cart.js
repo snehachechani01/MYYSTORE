@@ -210,3 +210,70 @@ if (!customElements.get('cart-note')) {
       }
   });
 };
+// Function to check if a specific product is in the cart
+function isProductInCart(productId) {
+  return Shopify.cart.items.some(function(item) {
+    return item.product_id === productId;
+  });
+}
+
+// Function to add a free product to the cart
+function addFreeProductToCart(productId, quantity) {
+  var formData = {
+    'items': [{
+      'id': productId,
+      'quantity': quantity,
+      'price': 0
+    }]
+  };
+
+      fetch(window.Shopify.routes.root + 'cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then(cartData => {
+            console.log('Product added to cart:', cartData);
+           
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            alert('Error adding product to cart!');
+          });
+      
+ 
+}
+
+// Function to fetch the latest total price using the cart.js API
+function fetchLatestTotalPrice() {
+  fetch('/cart.js')
+  .then(function(response) {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Error fetching cart data');
+    }
+  })
+  .then(function(cart) {
+    var totalPrice = cart.total_price;
+
+    // Perform the condition check here
+    if (totalPrice > 10000 ) {
+      addFreeProductToCart(44976669393191, 1);
+    }
+  })
+  .catch(function(error) {
+    alert(error);
+  });
+}
+
+// Call the fetchLatestTotalPrice function when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+  fetchLatestTotalPrice();
+});
+
