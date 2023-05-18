@@ -228,26 +228,28 @@ function addFreeProductToCart(productId, quantity) {
     }]
   };
 
-      fetch(window.Shopify.routes.root + 'cart/add.js', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formData)
-        })
-          .then(response => {
-            return response.json();
-          })
-          .then(cartData => {
-            console.log('Product added to cart:', cartData);
-           
-          })
-          .catch(error => {
-            console.error('Error:', error);
-            alert('Error adding product to cart!');
-          });
-      
- 
+  fetch(window.Shopify.routes.root + 'cart/add.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then(cartData => {
+      console.log('Product added to cart:', cartData);
+      // Disable the quantity input field for the free product
+      var freeProductInput = document.querySelector(`[data-id="${productId}"] input[name="updates[]"]`);
+      if (freeProductInput) {
+        freeProductInput.disabled = true;
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('Error adding product to cart!');
+    });
 }
 
 // Function to fetch the latest total price using the cart.js API
