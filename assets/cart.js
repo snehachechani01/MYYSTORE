@@ -210,69 +210,113 @@ if (!customElements.get('cart-note')) {
       }
   });
 };
-// Function to check if a specific product is in the cart
-function isProductInCart(productId) {
-  return Shopify.cart.items.some(function(item) {
-    return item.product_id === productId;
-  });
-}
+<script>
+  // Function to check if the free product is already in the cart
+  function isFreeProductInCart(productId) {
+    var isFreeProductInCart = false;
 
-// Function to add a free product to the cart
-function addFreeProductToCart(productId, quantity) {
-  var formData = {
-    'items': [{
-      'id': productId,
-      'quantity': quantity,
-      'price': 0
-    }]
-  };
+    // Loop through the cart items to check if the free product is present
+    {% for item in cart.items %}
+      if (item.product_id == productId) {
+        isFreeProductInCart = true;
+        break;
+      }
+    {% endfor %}
 
-      fetch(window.Shopify.routes.root + 'cart/add.js', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formData)
-        })
-          .then(response => {
-            return response.json();
-          })
-          .then(cartData => {
-            console.log('Product added to cart:', cartData);
-           
-          })
-          .catch(error => {
-            console.error('Error:', error);
-            alert('Error adding product to cart!');
-          });
-      
- 
-}
+    return isFreeProductInCart;
+  }
 
-// Function to fetch the latest total price using the cart.js API
-function fetchLatestTotalPrice() {
-  fetch('/cart.js')
-  .then(function(response) {
-    if (response.ok) {
-      return response.json();
-    } else {
-      throw new Error('Error fetching cart data');
+  // Function to add the free product to the cart
+  function addFreeProductToCart(productId) {
+    // Check if the free product is already in the cart
+    if (isFreeProductInCart(productId)) {
+      alert('Free product is already in the cart.');
+      return;
     }
-  })
-  .then(function(cart) {
-    var totalPrice = cart.total_price;
 
-    // Perform the condition check here
-    if (totalPrice > 10000 ) {
-      addFreeProductToCart(44976669393191, 1);
-    }
-  })
-  .catch(function(error) {
-    alert(error);
+    var params = {
+      quantity: 1,
+      id: productId,
+      properties: {
+        disable_quantity: true
+      }
+    };
+
+    $.ajax({
+      type: 'POST',
+      url: '/cart/add.js',
+      data: params,
+      dataType: 'json',
+      success: function () {
+        // Cart update successful
+        alert('Free product added to cart!');
+
+        // Refresh the cart totals
+        refreshCartTotals();
+      },
+      error: function () {
+        // Error occurred
+        alert('Error adding free product to cart!');
+      }
+    });
+  }
+
+  // Function to check the cart total and add the free product
+  function checkCartTotal() {
+    $.ajax({
+      type: 'GET',
+      url: '/cart.js',
+      dataType: 'json',
+      success: function(cart) {
+        var cartTotal = cart.total_price;
+
+        // Change the condition to match your currency and threshold
+        if (cartTotal >= 10000) {
+          // Call the function to add the free product
+          addFreeProductToCart('44976669393191');
+        }
+      },
+      error: function() {
+        // Error occurred
+        alert('Error retrieving cart information!');
+      }
+    });
+  }
+
+  // Function to refresh the cart totals
+  function refreshCartTotals() {
+    $.ajax({
+      type: 'GET',
+      url: '/cart.js',
+      dataType: 'json',
+      success: function(cart) {
+        // Update the cart totals displayed on the page
+        $('.cart-total').text('{{ shop.money_format }}' + cart.total_price);
+      },
+      error: function() {
+        // Error occurred
+        alert('Error retrieving cart information!');
+      }
+    });
+  }
+
+  // Call the checkCartTotal function when the document is ready
+  $(document).ready(function() {
+    checkCartTotal();
+
+    // Disable the quantity input for the free product item
+    $('body').on('input', '.free-product-quantity', function() {
+      this.value = 1;
+    });
+    $('body').on('keydown', '.free-product-quantity', function(e) {
+      if (e.which === 38 || e.which === 40) {
+        e.preventDefault();
+        return false;
+      }
+    });
+    $('body').on('mousewheel', '.free-product-quantity', function(e) {
+      e.preventDefault();
+      return false;
+    });
   });
-}
-
-// Call the fetchLatestTotalPrice function when the page loads
-document.addEventListener('DOMContentLoaded', function() {
-  fetchLatestTotalPrice();
-});
+</script>
